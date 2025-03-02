@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2023 at 11:50 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Mar 02, 2025 at 01:15 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,9 +42,9 @@ CREATE TABLE `blog` (
 --
 
 INSERT INTO `blog` (`id`, `title`, `des`, `image`, `video`, `status`, `date`) VALUES
-(1, 'Ronaldo Grounded', 'Cristiano Ronaldo successfully captained Portugal to victory in France at the Euro 2016 football tournament. He is recognised as one of the world\'s best players and it was his time at Manchester United that provided the foundation for his success as a player. The early days at the club were, however, far from easy, but there are some powerful lessons around success and mentorship that we can all learn.', 'neon-_ex-XkuYjdVF7Fo-unsplash.jpg', '', 1, '2023-08-13'),
-(2, 'Rain During the Match', 'The match was paused after four minutes 17 seconds, representing the time the first earthquake struck Turkey and Syria at 04:17 on 6 February.\r\n\r\nThe fans then began throwing the toys, which will be given to children in Turkey and Syria, from the stands.\r\n\r\nIt was accompanied by anti-government chants by the home supporters.\r\n\r\nMore than 50,000 people have died following the earthquakes.\r\n\r\n\"Our fans organised a meaningful event called \'This toy is my friend\' during the match in order to give morale to the children affected by the earthquake,\" Besiktas said.\r\n\r\n\"The fans threw scarves, berets and plush toys to be given as a gift to the children in the earthquake region.\"', 'michael-lee-GxNrtQRAPwA-unsplash.jpg', '', 1, '2023-08-13'),
-(3, 'Empty  Stadium kick out', 'Qatar’s World Cup organisers have again been exposed making things up after a laughable claim for the opening contest of Matchday 4.\r\n\r\nNew York Times reporter Tariq Panja shared a photo of the crowd at the Al Bayt Stadium for Morocco’s clash with Croatia to open up Group F, which he described as “half-empty”.\r\n\r\n“Morocco fans making decent sound in Al Khor even though stadium is about half full/empty for this game,” he tweeted.', 'dmitry-tomashek-pH7_hVJ65ss-unsplash.jpg', '', 1, '2023-08-13');
+(1, 'Biggest Match of Soccer', 'The 2023 Major League Soccer season is the 28th season of Major League Soccer (MLS), the top professional soccer league in the United States and Canada. Furthermore, being the 45th season overall, of a national first-division league in the United States. The league will have 29 clubs following the addition of St. Louis City SC as an expansion team in the Western Conference, with Nashville SC moving back to the Eastern Conference. The regular season began on February 25, 2023, and ends on October 21; it will then be followed by the playoffs. The regular schedule was released on December 20, 2022.', 'stadium-with-purple-roof-lights-that-says-world-cup-it.jpg', '', 1, '2023-08-16'),
+(2, 'Messi Heavy Goal', 'Lionel Andrés Messi ( born 24 June 1987), also known as Leo Messi, is an Argentine professional footballer who plays as a forward for and captains both Major League Soccer club Inter Miami and the Argentina national team. Widely regarded as one of the greatest players of all time, Messi has won a record seven Ballon d\'Or awards and a record six European Golden Shoes, and in 2020 he was named to the Ballon d\'Or Dream Team. Until leaving the club in 2021, he had spent his entire professional career with Barcelona, where he won a club-record 35 trophies, including ten La Liga titles, seven Copa del Rey titles and the UEFA Champions League four times.[note 3] With his country, he won the 2021 Copa América and the 2022 FIFA World Cup. A prolific goalscorer and creative playmaker, Messi holds the records for most goals in La Liga (474), most hat-tricks in La Liga (36) and the UEFA Champions League (eight), and most assists in La Liga (192) and the Copa América (17). He also has the most international goals by a South American male (103). Messi has scored over 800 senior career goals for club and country, and has the most goals by a player for a single club (672).', 'male-beauty-concept-portrait-fashionable-young-man-with-stylish-haircut-wearing-trendy-suit-posing-red-wall.jpg', '', 1, '2023-08-16'),
+(3, 'Ronaldo', 'Cristiano Ronaldo dos Santos Aveiro GOIH ComM (Portuguese pronunciation: [kɾiʃˈtjɐnu ʁɔˈnaldu]; born 5 February 1985) is a Portuguese professional footballer who plays as a forward for and captains both Saudi Pro League club Al Nassr and the Portugal national team. Widely regarded as one of the greatest players of all time, Ronaldo has won five Ballon d\'Or awards,[note 3] a record three UEFA Best Player in Europe, and four European Golden Shoes, the most by a European player. He has won 34 trophies in his career, including seven league titles, five UEFA Champions Leagues, the UEFA European Championship and the UEFA Nations League. Ronaldo holds the records for most appearances (183), goals (140) and assists (42) in the Champions League, goals in the European Championship (14), international goals (123) and international appearances (200). He is one of the few players to have made over 1,100 professional career appearances, and has scored over 800 official senior career goals for club and country, making him the highest goalscorer of all time.', 'download (1).jfif', '', 1, '2023-08-16');
 
 -- --------------------------------------------------------
 
@@ -58,6 +58,36 @@ CREATE TABLE `cart` (
   `merchandise_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `ip`, `merchandise_id`, `quantity`) VALUES
+(14, '182.180.190.196', 8, 4),
+(17, '103.84.150.78', 8, 2),
+(19, '::1', 9, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `cat_id` int(11) NOT NULL,
+  `cat_name` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL,
+  `date_created` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`cat_id`, `cat_name`, `status`, `date_created`) VALUES
+(1, 'Shoes', 1, '2023-08-17 20:54:42'),
+(2, 'sports', 1, '2023-08-30 11:32:03');
 
 -- --------------------------------------------------------
 
@@ -112,6 +142,13 @@ CREATE TABLE `live_scores` (
   `match_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `live_scores`
+--
+
+INSERT INTO `live_scores` (`live_score_id`, `match_id`, `team1_score`, `team2_score`, `match_status`, `match_date`) VALUES
+(0, 1, 5, 2, '1', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -126,15 +163,16 @@ CREATE TABLE `matches` (
   `competition` varchar(255) DEFAULT NULL,
   `team_id_1` int(11) DEFAULT NULL,
   `team_id_2` int(11) DEFAULT NULL,
-  `additional_info` text DEFAULT NULL
+  `additional_info` text DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `matches`
 --
 
-INSERT INTO `matches` (`match_id`, `match_name`, `date`, `time`, `competition`, `team_id_1`, `team_id_2`, `additional_info`) VALUES
-(1, 'ghfdg', '2023-08-02', '08:26:26', '1', 1, 2, 'grfgfgfdgfgfdg');
+INSERT INTO `matches` (`match_id`, `match_name`, `date`, `time`, `competition`, `team_id_1`, `team_id_2`, `additional_info`, `status`) VALUES
+(1, 'ghfdg', '2023-08-02', '08:26:26', '1', 1, 2, 'grfgfgfdgfgfdg', 1);
 
 -- --------------------------------------------------------
 
@@ -144,6 +182,7 @@ INSERT INTO `matches` (`match_id`, `match_name`, `date`, `time`, `competition`, 
 
 CREATE TABLE `merchandise` (
   `merchandise_id` int(11) NOT NULL,
+  `p_cat_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `mrp` varchar(255) NOT NULL,
@@ -160,8 +199,8 @@ CREATE TABLE `merchandise` (
 -- Dumping data for table `merchandise`
 --
 
-INSERT INTO `merchandise` (`merchandise_id`, `name`, `description`, `mrp`, `price`, `image_1`, `image_2`, `image_3`, `sale_status`, `p_status`, `date`) VALUES
-(6, 'jacket', 'gtfdhgfjfgfduyhtfhtfiujthtyhtytyt', '1000000', '2444', 'product01.jpg', 'product02.jpg', 'product03.jpg', 1, 1, '2023-08-10 02:21:32');
+INSERT INTO `merchandise` (`merchandise_id`, `p_cat_id`, `name`, `description`, `mrp`, `price`, `image_1`, `image_2`, `image_3`, `sale_status`, `p_status`, `date`) VALUES
+(9, 2, 'Soccer', '5000 ki soccer lelo', '0', '5000', '10601489_41932.jpg', '2071687_266535-P5LFMH-448.jpg', '10601489_41932.jpg', 1, 1, '2023-12-15 02:07:01');
 
 -- --------------------------------------------------------
 
@@ -183,8 +222,7 @@ CREATE TABLE `order` (
 --
 
 INSERT INTO `order` (`order_id`, `user_id`, `merchandise_id`, `quantity`, `order_date`, `status`) VALUES
-(2, 'taha_98', 6, '1', '2023-08-12 00:40:05', 0),
-(3, 'fazan45', 6, '2', '2023-08-13 13:41:56', 0);
+(9, 'seaker', 9, '2', '2025-03-01 22:02:21', 1);
 
 -- --------------------------------------------------------
 
@@ -252,7 +290,9 @@ CREATE TABLE `reminder` (
 
 INSERT INTO `reminder` (`id`, `match_id`, `email`, `status`) VALUES
 (1, '2', 'mt532567890@gmail.com', 0),
-(2, '2', 'mt532567890@gmail.com', 0);
+(2, '2', 'mt532567890@gmail.com', 0),
+(3, '1', 'noreply@ecommerce.com', 0),
+(4, '1', 'marcodesolutions@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -285,15 +325,50 @@ INSERT INTO `reviews` (`id`, `blog_id`, `name`, `email`, `comment`, `date_commen
 CREATE TABLE `settings` (
   `id` int(11) NOT NULL,
   `about` mediumtext NOT NULL,
-  `contact` mediumtext NOT NULL
+  `contact` mediumtext NOT NULL,
+  `categories_status` int(11) NOT NULL,
+  `facebook_link` varchar(355) NOT NULL,
+  `twitter_link` varchar(355) NOT NULL,
+  `behance_link` varchar(355) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `about`, `contact`) VALUES
-(1, 'The SSC Soccer Club stands as a testament to the spirit of camaraderie, dedication, and passion for the beautiful game. Established with a vision to foster a community united by their love for soccer, the club has grown into a vibrant hub where players, fans, and enthusiasts converge.\r\n\r\nAt the heart of SSC Soccer Club lies a deep commitment to excellence both on and off the field. With a rich history spanning several years, the club has consistently provided a platform for players of all ages to hone their skills, compete, and experience the joy of the sport. Through rigorous training, strategic coaching, and a culture of continuous improvement, SSC has produced exceptional players who carry their experience and learning forward.\r\n\r\nBeyond the field, SSC Soccer Club has become a symbol of unity and belonging. Fans from diverse backgrounds come together to support their favorite teams, sharing in the thrill of victories and the lessons in defeats. The club\'s events, matches, and community outreach initiatives promote a sense of togetherness that extends beyond the boundaries of the game.\r\n\r\nSSC Soccer Club\'s success lies in its commitment to values that transcend the sport itself – discipline, teamwork, and sportsmanship. These values inspire players to strive for greatness, respect their opponents, and contribute positively to society. The club\'s impact goes beyond trophies and titles; it instills character and life skills that players carry with them in their journey both on and off the field.\r\n\r\nAs the club continues to evolve, SSC Soccer Club remains a beacon of passion, unity, and excellence in the world of soccer. Its legacy continues to shape players, fans, and the community at large, reflecting the power of sports to bring people together and create lasting memories.', 'Thank you for your interest in connecting with us. Whether you have inquiries, feedback, or would like to get involved, we welcome the opportunity to hear from you. Feel free to reach out using the information provided below:\r\n\r\n');
+INSERT INTO `settings` (`id`, `about`, `contact`, `categories_status`, `facebook_link`, `twitter_link`, `behance_link`) VALUES
+(1, 'The SSC Soccer Club stands as a testament to the spirit of camaraderie, dedication, and passion for the beautiful game. Established with a vision to foster a community united by their love for soccer, the club has grown into a vibrant hub where players, fans, and enthusiasts converge.\r\n\r\nAt the heart of SSC Soccer Club lies a deep commitment to excellence both on and off the field. With a rich history spanning several years, the club has consistently provided a platform for players of all ages to hone their skills, compete, and experience the joy of the sport. Through rigorous training, strategic coaching, and a culture of continuous improvement, SSC has produced exceptional players who carry their experience and learning forward.\r\n\r\nBeyond the field, SSC Soccer Club has become a symbol of unity and belonging. Fans from diverse backgrounds come together to support their favorite teams, sharing in the thrill of victories and the lessons in defeats. The club\'s events, matches, and community outreach initiatives promote a sense of togetherness that extends beyond the boundaries of the game.\r\n\r\nSSC Soccer Club\'s success lies in its commitment to values that transcend the sport itself – discipline, teamwork, and sportsmanship. These values inspire players to strive for greatness, respect their opponents, and contribute positively to society. The club\'s impact goes beyond trophies and titles; it instills character and life skills that players carry with them in their journey both on and off the field.\r\n\r\nAs the club continues to evolve, SSC Soccer Club remains a beacon of passion, unity, and excellence in the world of soccer. Its legacy continues to shape players, fans, and the community at large, reflecting the power of sports to bring people together and create lasting memories.', 'Thank you for your interest in connecting with us. Whether you have inquiries, feedback, or would like to get involved, we welcome the opportunity to hear from you. Feel free to reach out using the information provided below:\r\n\r\n', 1, 'facebook.com/MuhammadTaha', 'twitter.com/@taha', 'https://786-tech.000webhostapp.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shipped`
+--
+
+CREATE TABLE `shipped` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `invoice` varchar(255) NOT NULL,
+  `fullname` varchar(255) NOT NULL,
+  `address` text NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `provice` varchar(255) NOT NULL,
+  `merch` varchar(255) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `mrp` varchar(255) NOT NULL,
+  `price` varchar(255) NOT NULL,
+  `subtotal` varchar(255) NOT NULL,
+  `grand_total` varchar(255) NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `shipped`
+--
+
+INSERT INTO `shipped` (`id`, `order_id`, `invoice`, `fullname`, `address`, `city`, `provice`, `merch`, `qty`, `mrp`, `price`, `subtotal`, `grand_total`, `date`) VALUES
+(3, 6, 'INV3785', 'Muhammad taha  ', 'A22 phase 2', 'Karachi gulshan-e-hadeed', 'sindh', 'Spiderman Shoes', 2, '200', '10000', '400', '20180', '2023-08-31 19:26:00'),
+(4, 9, 'INV4218', 'Muhammad taha', 'A22 phase 2, K-E-S-C Colony', 'Karachi', 'sindh', 'Soccer', 2, '0', '5000', '0', '10180', '2025-03-01 22:02:08');
 
 -- --------------------------------------------------------
 
@@ -318,8 +393,10 @@ CREATE TABLE `shipping_details` (
 --
 
 INSERT INTO `shipping_details` (`id`, `username`, `fullname`, `address`, `contact`, `postal_code`, `procvice`, `city`, `date_added`) VALUES
-(2, 'taha_98', 'Muhammad taha  ', 'laf', '03153678107', '75010', 'sindh', 'Karachi gulshan-e-hadeed', '2023-08-12 03:39:01'),
-(7, 'fazan45', 'Muhammad Faizan', 'A22 phase 2', '03152773880', '75010', 'sindh', 'Karachi gulshan-e-hadeed', '2023-08-13 00:09:01');
+(2, 'taha_98', 'Muhammad taha  ', 'A22 phase 2', '03153678107', '75010', 'sindh', 'Karachi gulshan-e-hadeed', '2023-08-16 20:30:52'),
+(7, 'fazan45', 'Muhammad Faizan', 'A22 phase 2', '03152773880', '75010', 'sindh', 'Karachi gulshan-e-hadeed', '2023-08-13 00:09:01'),
+(8, 'taha_0981', 'Muhammad taha', 'A22 phase 2, K-E-S-C Colony', '03153678107', '75010', 'sindh', 'Karachi', '2023-08-17 14:22:10'),
+(9, 'seaker', 'Muhammad taha', 'A22 phase 2, K-E-S-C Colony', '123456', '75010', 'sindh', 'Karachi', '2023-12-15 02:11:33');
 
 -- --------------------------------------------------------
 
@@ -409,9 +486,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fullname`, `email`, `username`, `password`, `contact`, `date_created`, `status`, `role`) VALUES
-(1, 'MSG - 360 Combat', 'msg360combat@info.com', 'Soccer_Admin', '12345', '763284632486324', '2023-08-09 04:06:39', 786, 786),
-(23, 'Muhammad taha  ', 'mt532567890@gmail.com', 'taha_98', '12345', '03153678107', '2023-08-13 01:52:45', 1, 1),
-(27, 'Muhammad Faizan', 'alltimeinpc@gmail.com', 'fazan45', '12345', '03152773880', '2023-08-13 00:08:40', 1, 0);
+(1, 'MSG - 360 Combat', 'msg360combat@info.com', 'Soccer_Admin', '12345', '763284632486324', '2023-08-09 04:06:39', 786, 786);
 
 -- --------------------------------------------------------
 
@@ -421,20 +496,10 @@ INSERT INTO `users` (`id`, `fullname`, `email`, `username`, `password`, `contact
 
 CREATE TABLE `verification_code` (
   `id` int(11) NOT NULL,
-  `user_id` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `verification_code` varchar(255) NOT NULL,
   `date_time` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `verification_code`
---
-
-INSERT INTO `verification_code` (`id`, `user_id`, `email`, `verification_code`, `date_time`) VALUES
-(1, '', 'mt532567890@gmail.com', '00477b', '2023-08-12 14:05:26'),
-(2, '', 'mt532567890@gmail.com', 'fd6b05', '2023-08-13 13:43:37'),
-(3, '', 'mt532567890@gmail.com', '033843', '2023-08-13 13:43:54');
 
 --
 -- Indexes for dumped tables
@@ -451,6 +516,12 @@ ALTER TABLE `blog`
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`cat_id`);
 
 --
 -- Indexes for table `contact`
@@ -522,6 +593,12 @@ ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `shipped`
+--
+ALTER TABLE `shipped`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `shipping_details`
 --
 ALTER TABLE `shipping_details`
@@ -573,7 +650,13 @@ ALTER TABLE `blog`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `feedback`
@@ -585,13 +668,13 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `merchandise`
 --
 ALTER TABLE `merchandise`
-  MODIFY `merchandise_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `merchandise_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `players`
@@ -609,7 +692,7 @@ ALTER TABLE `player_statistics`
 -- AUTO_INCREMENT for table `reminder`
 --
 ALTER TABLE `reminder`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -618,10 +701,16 @@ ALTER TABLE `settings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `shipped`
+--
+ALTER TABLE `shipped`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `shipping_details`
 --
 ALTER TABLE `shipping_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `teams`
@@ -639,13 +728,13 @@ ALTER TABLE `team_statistics`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `verification_code`
 --
 ALTER TABLE `verification_code`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables
